@@ -68,6 +68,7 @@ export async function loadConfig(cwd) {
     desiredHour: asInteger(process.env.EZTOR_DESIRED_HOUR, 18),
     desiredMinute: asInteger(process.env.EZTOR_DESIRED_MINUTE, 0),
     fallbackAfterHour: asInteger(process.env.EZTOR_FALLBACK_AFTER_HOUR, 16),
+    targetLeadDays: asInteger(process.env.EZTOR_TARGET_LEAD_DAYS, 30),
     scanIntervalMinutes: asInteger(process.env.EZTOR_SCAN_INTERVAL_MINUTES, 15),
     midnightBurstMinutes: asInteger(process.env.EZTOR_MIDNIGHT_BURST_MINUTES, 20),
     alertRepeatHours: asInteger(process.env.EZTOR_ALERT_REPEAT_HOURS, 12),

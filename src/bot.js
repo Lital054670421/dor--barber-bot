@@ -178,8 +178,9 @@ export async function runBot({ client, config, logger, reason }) {
   const appointmentThisWeek = findAppointmentThisWeek(existingOrders, config);
 
   if (appointmentThisWeek) {
-    logger.info("Current week is already covered. Looking for the next uncovered week.", {
-      appointment: formatDateTime(new Date(appointmentThisWeek.DateAndHour), config.timezone)
+    logger.info("Current week is already covered. Looking for the uncovered week closest to the target lead time.", {
+      appointment: formatDateTime(new Date(appointmentThisWeek.DateAndHour), config.timezone),
+      targetLeadDays: config.targetLeadDays
     });
   }
 
@@ -236,6 +237,8 @@ export async function runBot({ client, config, logger, reason }) {
     slot: selectedSlot._debug?.localDateTime ?? formatDateTime(new Date(selectedSlot.DateAndHour), config.timezone),
     employeeName: orderTemplate.Employye.Name,
     treatmentName: orderTemplate.Treatment.Name,
+    selectedLeadDays: selectedSlot._debug?.selectedLeadDays,
+    targetLeadDays: selectedSlot._debug?.targetLeadDays ?? config.targetLeadDays,
     dryRun: config.dryRun
   });
 
