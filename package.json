@@ -1,0 +1,12 @@
+{
+  "name": "dor-bot",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Automation bot for weekly Eztor appointment booking.",
+  "scripts": {
+    "start": "node src/index.js",
+    "start:once": "node src/index.js --once",
+    "discover": "node src/cli/discover.js"
+  }
+}
